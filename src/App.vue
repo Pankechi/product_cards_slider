@@ -1,26 +1,67 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+  <div class="app-wrapper">
+
+    <ProductsPage
+      :product_list="this.store.state.products" 
+    />
+
+  </div>
+  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import { useStore } from 'vuex'
+import ProductsPage from "./views/ProductsPage.vue";
 
 export default {
   name: 'App',
+
+
   components: {
-    HelloWorld
-  }
+    ProductsPage,
+  },
+
+  setup() {
+    const store = useStore()
+    return {
+      store,
+    }
+  },
+
+  data() {
+    return {
+   
+    }
+  },
+
+  mounted() {
+    this.store.dispatch('getProducts')
+  },
+  
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @font-face {
+    font-family: 'Jost Regular';
+    src: url(./fonts/Jost-Regular.ttf);
+  }
+
+  @font-face {
+    font-family: 'Jost Medium';
+    src: url(./fonts/Jost-Medium.ttf);
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Jost Regular';
+  }
+
+  .app-wrapper {
+    margin: 91px 91px 61px 91px;
+  }
 </style>
