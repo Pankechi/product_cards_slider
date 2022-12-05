@@ -20,32 +20,6 @@ const store = useStore()
 
 onMounted( () => store.dispatch('getProducts'))
 
-// export default {
-//   name: 'App',
-
-
-//   components: {
-//     ProductsPage,
-//   },
-
-//   setup() {
-//     const store = useStore()
-//     return {
-//       store,
-//     }
-//   },
-
-//   data() {
-//     return {
-   
-//     }
-//   },
-
-//   mounted() {
-//     this.store.dispatch('getProducts')
-//   },
-  
-// }
 </script>
 
 <style>

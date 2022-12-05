@@ -2,11 +2,6 @@
 
   <div class="product-page__wrapper">
 
-      <div class="arrow__wrapper">
-        <ArrowButtonLeft   />
-        <ArrowButtonRight   />
-      </div>
-
       <Carousel 
         :settings="settings"
         ref="ProdCarusel" 
@@ -38,8 +33,6 @@
 <script setup> 
   
 import ProductCard from '../components/ProductCard.vue'
-import ArrowButtonLeft from '../components/UI/ArrowButtonLeft.vue'
-import ArrowButtonRight from '../components/UI/ArrowButtonRight.vue'
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Navigation, Pagination } from 'vue3-carousel'
 import { defineProps } from 'vue'
@@ -55,17 +48,15 @@ const settings = {
       },
       756: {
         itemsToShow: 3,
-  },
-  1024: {
-    itemsToShow: 4,
-  },
-  1800: {
-    itemsToShow: 5,
+      },
+      1024: {
+        itemsToShow: 4,
+      },
+      1800: {
+        itemsToShow: 5,
+     }
   }
 }
-}
-
-// const products = ref([...props.product_list])
 
 </script>
 

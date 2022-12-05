@@ -14,36 +14,47 @@
 
 </template>
 
-<script>
+<script setup>
 
 import FilledStar from './UI/FilledStar.vue'
 import EmptyStar from './UI/EmptyStar.vue'
+import { computed, ref, defineProps } from 'vue'
 
-export default {
-  components: {
-    FilledStar,
-    EmptyStar,
-  },
+const props = defineProps({
+  rating: Number
+})
 
-  props: {
-    rating: Number
-  },
+const stars = ref(props.rating)
 
-  data() {
-    return {
-      filled_stars: this.rating,
-    }
-  },
+const filled_rating = computed( () => {return [...Array(stars.value).keys()]})
 
-  computed: {
-    filled_rating: function() {
-      return [...Array(this.filled_stars).keys()]
-    },
-    empty_rating: function() {
-      return [...Array( 5 -this.filled_stars).keys()]
-    }, 
-  },
-}
+const empty_rating = computed( () => { return [...Array(5 - stars.value).keys()]})
+
+// export default {
+//   components: {
+//     FilledStar,
+//     EmptyStar,
+//   },
+
+//   props: {
+//     rating: Number
+//   },
+
+//   data() {
+//     return {
+//       filled_stars: this.rating,
+//     }
+//   },
+
+//   computed: {
+//     filled_rating: function() {
+//       return [...Array(this.filled_stars).keys()]
+//     },
+//     empty_rating: function() {
+//       return [...Array( 5 -this.filled_stars).keys()]
+//     }, 
+//   },
+// }
 
 </script>
 

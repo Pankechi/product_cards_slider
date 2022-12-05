@@ -4,12 +4,12 @@
     <div class="pic-wrapper">
 
       <ProductSticker
-        v-if="sticker"
-        :stickers="sticker" />
+        v-if="product.sticker"
+        :stickers="product.sticker" />
 
       <img 
         class="pic" 
-        :src="image" 
+        :src="product.image" 
         alt="img"
       >
 
@@ -18,22 +18,22 @@
     <p 
       class="product__article"
       >
-      {{ article }}
+      {{ product.article }}
     </p> 
 
     <p 
       class="product__name"
       >
-      {{ category }} {{ title }}
+      {{ product.category }} {{ product.title }}
     </p>
 
     <ProductRating 
-       :rating="rating" />
+       :rating="product.rating" />
 
     <p 
       class="product__old-price"
-      v-if="price.old">
-      {{ price.old }} {{ price.currency }}
+      v-if="product.price.old">
+      {{ product.price.old }} {{ product.price.currency }}
     </p>
 
     <p 
@@ -47,7 +47,7 @@
     <p 
       class="product__current-price"
       >
-      {{ price.current }} {{price.currency}}
+      {{ product.price.current }} {{product.price.currency}}
     </p>
 
     <div class="buttons__wrapper">
@@ -63,39 +63,28 @@
 </template>
 
 
-<script>
+<script setup>
 
 import ProductButton from './UI/ProductButton.vue';
 import LikeButton from './UI/LikeButton.vue';
 import ChartButton from './UI/ChartButton.vue'
 import ProductSticker from './ProductSticker.vue';
 import ProductRating from './ProductRating.vue';
+import { ref, defineProps } from 'vue';
 
-export default {
-  props: {
-    product_card: Object
-  },
+const props = defineProps({
+  product_card: Object
+})
 
-  components: {
-    ProductButton,
-    LikeButton,
-    ChartButton,
-    ProductSticker,
-    ProductRating,
-  },
-
-  data() {
-    return {
-    image: this.product_card.image,
-    article: this.product_card.article,
-    category: this.product_card.category,
-    title: this.product_card.title,
-    rating: this.product_card.rating,
-    price: this.product_card.price,
-    sticker: this.product_card.stickers,
-    }
-  },
-}
+const product = ref({
+    image: props.product_card.image,
+    article: props.product_card.article,
+    category: props.product_card.category,
+    title: props.product_card.title,
+    rating: props.product_card.rating,
+    price: props.product_card.price,
+    sticker: props.product_card.stickers,
+})
 
 </script>
 
