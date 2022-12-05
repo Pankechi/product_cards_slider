@@ -2,7 +2,7 @@
 
   <div>
 
-      <Carousel v-bind="settings">
+      <Carousel :items-to-show="5" :items-to-scroll="1" >
 
 
 
@@ -12,11 +12,12 @@
               :product_card="product"
             />
 
-            <template>
-            <Navigation />
-          </template>
-
       </Carousel>
+
+      <div>
+      <button @click="next">next</button>
+      <button @click="prev">prev</button>
+      </div>
 
   </div>
 
@@ -26,17 +27,15 @@
   
 import ProductCard from '../components/ProductCard.vue'
 import 'vue3-carousel/dist/carousel.css'
-import { Carousel, Navigation  } from 'vue3-carousel'
+import { Carousel, } from 'vue3-carousel'
 
 
 export default {
   components: {
     ProductCard,
     Carousel, 
-    Navigation
-
-    
   },
+
   props: {
     product_list: Array,
   },

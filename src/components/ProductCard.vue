@@ -27,14 +27,12 @@
       {{ category }} {{ title }}
     </p>
 
-    <p>
-      {{ rating }}
-    </p>
+    <ProductRating 
+       :rating="rating" />
 
     <p 
       class="product__old-price"
-      v-if="price.old"
-      >
+      v-if="price.old">
       {{ price.old }} {{ price.currency }}
     </p>
 
@@ -71,6 +69,7 @@ import ProductButton from './UI/ProductButton.vue';
 import LikeButton from './UI/LikeButton.vue';
 import ChartButton from './UI/ChartButton.vue'
 import ProductSticker from './ProductSticker.vue';
+import ProductRating from './ProductRating.vue';
 
 export default {
   props: {
@@ -81,7 +80,8 @@ export default {
     ProductButton,
     LikeButton,
     ChartButton,
-    ProductSticker
+    ProductSticker,
+    ProductRating,
   },
 
   data() {
