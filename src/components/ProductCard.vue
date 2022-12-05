@@ -109,7 +109,7 @@ export default {
   width: 253px;
   height: 590px;
   padding: 40px 30px 30px 30px;
-  margin-left: 41px;
+  /* margin-left: 41px; */
   text-align: left;
 }
 
@@ -164,4 +164,17 @@ export default {
   gap: 26px;
 }
 
+
+@media screen and (max-width: 390px) {
+  
+}
+
 </style>
+
+/*
+pic
+width: 82px;
+height: 110px;
+
+
+*/

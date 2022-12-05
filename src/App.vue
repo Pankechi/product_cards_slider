@@ -3,44 +3,49 @@
   <div class="app-wrapper">
 
     <ProductsPage
-      :product_list="this.store.state.products" 
+      :product_list="store.state.products" 
     />
 
   </div>
   
 </template>
 
-<script>
+<script setup>
 
 import { useStore } from 'vuex'
+import { onMounted } from 'vue'
 import ProductsPage from "./views/ProductsPage.vue";
 
-export default {
-  name: 'App',
+const store = useStore()
+
+onMounted( () => store.dispatch('getProducts'))
+
+// export default {
+//   name: 'App',
 
 
-  components: {
-    ProductsPage,
-  },
+//   components: {
+//     ProductsPage,
+//   },
 
-  setup() {
-    const store = useStore()
-    return {
-      store,
-    }
-  },
+//   setup() {
+//     const store = useStore()
+//     return {
+//       store,
+//     }
+//   },
 
-  data() {
-    return {
+//   data() {
+//     return {
    
-    }
-  },
+//     }
+//   },
 
-  mounted() {
-    this.store.dispatch('getProducts')
-  },
+//   mounted() {
+//     this.store.dispatch('getProducts')
+//   },
   
-}
+// }
 </script>
 
 <style>
