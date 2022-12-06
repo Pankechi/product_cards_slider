@@ -24,37 +24,13 @@ const props = defineProps({
   rating: Number
 })
 
+const rating_range = 5
+
 const stars = ref(props.rating)
 
 const filled_rating = computed( () => {return [...Array(stars.value).keys()]})
 
-const empty_rating = computed( () => { return [...Array(5 - stars.value).keys()]})
-
-// export default {
-//   components: {
-//     FilledStar,
-//     EmptyStar,
-//   },
-
-//   props: {
-//     rating: Number
-//   },
-
-//   data() {
-//     return {
-//       filled_stars: this.rating,
-//     }
-//   },
-
-//   computed: {
-//     filled_rating: function() {
-//       return [...Array(this.filled_stars).keys()]
-//     },
-//     empty_rating: function() {
-//       return [...Array( 5 -this.filled_stars).keys()]
-//     }, 
-//   },
-// }
+const empty_rating = computed( () => { return [...Array(rating_range - stars.value).keys()]})
 
 </script>
 

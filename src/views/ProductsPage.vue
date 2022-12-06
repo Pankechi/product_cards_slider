@@ -1,32 +1,33 @@
 <template>
 
-  <div class="product-page__wrapper">
+  <!-- <div class="product-page__wrapper"> -->
 
-      <Carousel 
-        :settings="settings"
-        ref="ProdCarusel" 
-        :items-to-show= "5"
-        :items-to-scroll= "1">
+    <Carousel 
+      :settings="settings"
+      ref="ProdCarusel" 
+      :items-to-scroll= "1">
 
-            <Slide 
-              v-for="product in props.product_list" 
-              :key="product.id">
+      <Slide 
+        v-for="product in props.product_list" 
+        :key="product.id">
 
-              <ProductCard 
-                :key="product.id" 
-                :product_card="product"
-              />
+        <ProductCard 
+          :key="product.id" 
+          :product_card="product"/>
 
-            </Slide>
+      </Slide>
 
-            <template #addons>
-              <Navigation class="nav" />
-              <Pagination />
-            </template>
+      <template #addons>
+
+        <Navigation class="nav" />
+
+        <Pagination />
+
+      </template>
 
       </Carousel>
 
-  </div>
+  <!-- </div> -->
 
 </template>
 
@@ -45,16 +46,19 @@ const settings = {
   breakpoints: {
     390: {
         itemsToShow: 1,
-      },
-      756: {
+    },
+    600: {
+      itemsToShow: 2,
+    },
+    1024: {
         itemsToShow: 3,
-      },
-      1024: {
+    },
+    1366: {
         itemsToShow: 4,
-      },
-      1800: {
+    },
+    1920: {
         itemsToShow: 5,
-     }
+    },
   }
 }
 
