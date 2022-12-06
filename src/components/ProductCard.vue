@@ -155,7 +155,36 @@ const product = ref({
 
 
 @media screen and (max-width: 390px) {
-  
+
+
+  .card {
+  border: 1px solid rgba(238, 238, 238, 1);
+  border-radius: 5px;
+  flex-direction: column;
+  width: 253px;
+  height: 590px;
+  padding: 40px 30px 30px 30px;
+  /* margin-left: 41px; */
+  text-align: left;
+  } 
+
+  .pic-wrapper {
+  width: 115px;
+  height: 115px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  }  
+
+  .pic {
+    width: 82px;
+    height: 110px;
+  }
+
+  .product__old-price {
+    display: none;
+  }
+
 }
 
 </style>
